@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{%extends "basicapp/base.html"%}
+  {%block body_block%}
+
+  <h1>Customers:</h1>
+
+  <div class="customers">
+    {% if custs %}
+      <table>
+        <thead>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Balance</th>
+        </thead>
+
+        {% for cust in custs %}
+        <tr>
+          <td>{{cust.name}}</td>
+          <td>{{cust.email}}</td>
+          <td>{{cust.balance}}</td>
+        </tr>
+        {% endfor %}
+
+      </table>
+    {% else %}
+      <p>NO customer list</p>
+    {% endif %}
+
+  </div>
+
+  {%endblock%}

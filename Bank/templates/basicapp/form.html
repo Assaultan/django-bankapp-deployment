@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{%extends "basicapp/base.html"%}
+  {%block body_block%}
+  <h1>Fill the tansfer form below to transfer money</h1>
+
+  <form method="post">
+    {{form.as_p}}
+    {% csrf_token %}
+    <input type="Submit" class="btn btn-primary" value="Submit">
+  </form>
+
+
+  {%endblock%}

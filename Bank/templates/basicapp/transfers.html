@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{%extends "basicapp/base.html"%}
+  {%block body_block%}
+  <h1>Transfer Successful</h1>
+  <br>
+  <h2>Transactions</h2>
+  <div class="customers">
+    {% if trans %}
+      <table>
+        <thead>
+          <th>Sender</th>
+          <th>Reciever</th>
+          <th>Amount Transferd</th>
+          <th>Date Time</th>
+        </thead>
+
+        {% for i in trans %}
+        <tr>
+          <td>{{i.sender_name}}</td>
+          <td>{{i.reciever_name}}</td>
+          <td>{{i.amount}}</td>
+          <td>{{i.date}}</td>
+        </tr>
+        {% endfor %}
+
+      </table>
+    {% else %}
+      <p>NO Transfers</p>
+    {% endif %}
+
+  </div>
+  {%endblock%}
