@@ -1,0 +1,10 @@
+{%extends "basicapp/basicapp_base.html"%}
+  {%block body_block%}
+
+  <h1>Confirm Delete {{customers.name}}</h1>
+    <form method="Post">
+        {%csrf_token%}
+        <input type="submit" class='btn btn-danger' value="Delete">
+        <a href="{%url basicapp:detail" pk=customers.pk>Cancel</a>
+    </form>
+  {%endblock%}

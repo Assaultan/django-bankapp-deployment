@@ -1,16 +1,48 @@
+from django.forms import models
 from django.shortcuts import render
 from django.http import HttpResponse
 from basicapp.models import Customers,Transfers
+from django.urls import reverse_lazy
 from . import forms
+from basicapp.forms import TransferForm
+from django.views.generic.edit import FormView
+from django.views.generic import(View,TemplateView,
+                                 ListView,DetailView,
+                                 CreateView,UpdateView,
+                                 DeleteView)
+                                 
 # Create your views here.
 
-def homepage(request):
-    return render(request,'basicapp/base.html')
 
-def customers(request):
-    cust_list = Customers.objects.order_by('name')
-    cust_dict = {'custs':cust_list}
-    return render(request,'basicapp/index.html',context=cust_dict)
+class IndexView(TemplateView):
+    template_name='basicapp/basicapp_base.html'
+
+class CustomerDetailView(DetailView):
+    context_object_name='customer_detail'
+    model=Customers
+    template_name='basicapp/customer_detail.html'
+
+class CustomersListView(ListView):
+    context_object_name='customer'
+    model=Customers
+
+class CustomerCreateView(CreateView):
+    fields=('name','email','balance')
+    model=Customers
+
+class CustomerUpdateView(UpdateView):
+    fields=('name','balance')
+    model=Customers
+
+class CustomerDeleteView(DeleteView):
+    model=Customers
+    success_url=reverse_lazy("basic_app:customers")
+
+
+class TransfersListView(ListView):
+    context_object_name='transfer'
+    model=Transfers    
+    ordering = ['date']
 
 def transferForm(request):
     form = forms.TransferForm()
@@ -43,10 +75,17 @@ def transferForm(request):
                 got.save(update_fields=['balance'])
                 form.save()
                 return transfers(request)
-    return render(request,'basicapp/form.html',{'form':form})
+    return render(request,'basicapp/transfer_form.html',{'form':form})
 
 
 def transfers(request):
     transfer_list = Transfers.objects.order_by('date')
     transfer_dict = {'trans':transfer_list}
-    return render(request,'basicapp/transfers.html',context=transfer_dict)
+    return render(request,'basicapp/transfers_list.html',context=transfer_dict)
+
+
+
+class CustomerCreateView(CreateView):
+    model=Customers
+    fields=('name','email','balance')
+    

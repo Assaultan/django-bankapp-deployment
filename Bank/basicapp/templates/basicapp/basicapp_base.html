@@ -14,10 +14,11 @@
     <nav class="navbar navbar-default navbar-static-top">
       <div class="container">
         <ul class="nav navbar-nav">
-          <li> <a class="navbar-brand" href="{%url 'home'%}">SparksBank</a></li>
-          <li> <a class="navbar-link" href="{%url 'customer'%}">Customers</a></li>
-          <li> <a class="navbar-link" href="{%url 'formpage'%}">Transfer Form</a></li>
-          <li> <a class="navbar-link" href="{%url 'transfers'%}">Transfers</a> </li>
+          <li> <a class="navbar-brand" href="{%url 'basicapp:index'%}">SparksBank</a></li>
+          <li> <a class="navbar-link" href="{%url 'basicapp:create'%}">Add Customer</a></li>
+          <li> <a class="navbar-link" href="{%url 'basicapp:customers'%}">Customers</a></li>
+          <li> <a class="navbar-link" href="{%url 'basicapp:formpage'%}">Transfer Form</a></li>
+          <li> <a class="navbar-link" href="{%url 'basicapp:transfers'%}">Transfers</a> </li>
           <li> <a class="navbar-link" href="{%url 'admin:index' %}">Admin</a></li>
         </ul>
       </div>

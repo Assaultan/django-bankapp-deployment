@@ -1,0 +1,22 @@
+{%extends "basicapp/basicapp_base.html"%}
+  {%block body_block%}
+  <h2>Customer Details:</h2>
+
+  <div class="customers">
+    
+
+    <div class="jumbotron">
+        
+        <p>Name:{{customer_detail.name}}</p>
+        <p>Email:{{customer_detail.email}}</p>
+        <p>Account Balance:{{customer_detail.balance}}</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <a class="btn btn-warning" href="{%url 'basicapp:update' pk=customer_detail.pk%}">Update</a>
+    <a class="btn btn-danger" href="{%url 'basicapp:delete' pk=customer_detail.pk%}">Delete</a></p>
+  </div>
+ 
+
+  {%endblock%}

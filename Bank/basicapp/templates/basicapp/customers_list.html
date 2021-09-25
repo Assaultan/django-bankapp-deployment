@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-{%extends "basicapp/base.html"%}
+{%extends "basicapp/basicapp_base.html"%}
   {%block body_block%}
 
   <h1>Customers:</h1>
 
   <div class="customers">
-    {% if custs %}
+    {% if customer %}
       <table>
         <thead>
           <th>Name</th>
@@ -13,9 +13,9 @@
           <th>Balance</th>
         </thead>
 
-        {% for cust in custs %}
+        {% for cust in customer %}
         <tr>
-          <td>{{cust.name}}</td>
+          <td><a href="{{cust.id}}">{{cust.name}}</a></td>
           <td>{{cust.email}}</td>
           <td>{{cust.balance}}</td>
         </tr>
