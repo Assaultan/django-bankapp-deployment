@@ -1,7 +1,15 @@
-h1{
-  color:#3ba52a;
+h1 {
+  color: red;
 }
 
-table,th,td{
-  border:2px solid black
+td {
+  border: 2px solid black;
+}
+
+.customer_table {
+  color: green;
+}
+
+.email {
+  color: goldenrod;
 }

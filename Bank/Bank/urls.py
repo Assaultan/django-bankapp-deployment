@@ -17,8 +17,10 @@ from django.contrib import admin
 from django.urls import path,include
 from basicapp import views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.IndexView.as_view()),
-    path('basicapp/',include('basicapp.urls',namespace='basicapp'))
+    path('basicapp/',include('basicapp.urls',namespace='basicapp')),
+    path('api/',include('basicapp.api.urls')),
 ]

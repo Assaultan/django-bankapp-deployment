@@ -6,7 +6,7 @@ from django.urls import reverse_lazy
 from . import forms
 from basicapp.forms import TransferForm
 from django.views.generic.edit import FormView
-from django.views.generic import(View,TemplateView,
+from django.views.generic import(TemplateView,
                                  ListView,DetailView,
                                  CreateView,UpdateView,
                                  DeleteView)
